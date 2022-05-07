@@ -30,3 +30,54 @@ Posted
 <dd>
 <%=@photo.created_at%>
 </dd>
+
+<dl> Edit photo </dl>
+
+<dd>
+    <form action="/update_photo/777">
+      <label for="browser_image">Image</label>
+      <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value="https://robohash.org/dolorehicincidunt.png?size=300x300&amp;set=set1">
+
+      <label for="browser_caption">Caption</label>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">Once you’ve accepted your flaws, no one can use them against you.</textarea>
+
+      <button>Update photo</button>
+    </form>
+  </dd>
+
+  <dl> Delete photo </dl>
+
+  <dd> <a href="/delete_photo/<%=@photo.id%>"> Delete this photo </a>
+
+
+  <h2> Comments </h2>
+
+
+<table border="1">
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+<% @photo.comments.each do |comment|%>
+
+  <tr>
+    <td>
+      <%=comment.commenter.username%>
+    </td>
+
+    <td>
+      <%=comment.body%>
+    </td>
+
+    <td>
+      <%=comment.created_at%>
+    </td>
+  </tr>
+  <%end %>
+</table>
+
+<h3> Add a new comment </h3>
+
+  
