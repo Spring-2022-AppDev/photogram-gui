@@ -31,6 +31,7 @@ class PhotosController < ApplicationController
   new_image.image = input_image
   new_image.caption = input_caption
   new_image.owner_id = input_poster
+  new_image.save
 
     render(:template=>"photos/create.html.erb")
   end
