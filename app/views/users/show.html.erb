@@ -14,9 +14,7 @@ Edit user
 </dl>
 
 <dd>
-<form action="/edit_user">
-<label for="id"> ID</label>
-<>
+<form action="/users/<%=@user.username%>/edit_user">
 
 <label for="update_username"> Username</label>
 <input id="update_username" type="text" value=<%=@user.username%> name="updated_username">

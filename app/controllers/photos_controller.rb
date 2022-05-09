@@ -21,20 +21,20 @@ class PhotosController < ApplicationController
   end
 
   def create
-    input_image = params.fetch("new_photo")
-    input_caption = params.fetch("new_photo_caption")
-    input_user = params.fetch("new_photo_poster")
+    # https://3000-spring2022a-photogramgu-7ieuz8ylabg.ws-us44.gitpod.io/add_photo?new_photo=data%3Aimage%2Fjpeg%3Bbase64%2C%2F9j%2F4AAQSkZJRgABAQAAAQABAAD%2F2wCEAAoHCBQUERcUERQYGBcXFxkXGhoaFxcYFxgaFxgaGBgZGRgaICwkGhwoIBgYJDckKC4vMj8yGSI4PTgwPCwxMy8BCwsLDw4PHRERHTMpIygxMy8zMy80NDQzMzExLzExMTMvMTMxMTExMzEzMTMxMTE6MzExMTExMTEvMTExMTExMf%2FAABEIALcBEwMBIgACEQEDEQH%2FxAAbAAABBQEBAAAAAAAAAAAAAAAAAQMEBQYCB%2F%2FEAD8QAAIBAwMCBAQEAwcEAAcAAAECEQADIQQSMQVBEyJRYTJxgZEGI0KhscHRFFJicpLh8DNDU4IVJCVzg6Lx%2F8QAGgEAAgMBAQAAAAAAAAAAAAAAAAMBAgQFBv%2FEADERAAICAQMCBAMIAgMAAAAAAAABAhEDBBIhMVETQWFxBRQiIzKBkaGxwfAVMyRy0f%2FaAAwDAQACEQMRAD8A8pooiiK99RlCiiKIooLCiiKIqaCwooiliigsSiiKIqaICiiKIooAooiiKKAKKIoiiiQooiiKKAKKIoiooAooiiKKAKKIoiigCiiiKKAKKIoooAoooqKAKSloooBKKWiooAoooooDqKXbXe2lirlNw3tpdtObaNtBG4b20bad20bakjcN7aSKd20baCdw1to207tpNtAbhrbRFO7aNtAbhqKIp3bRtoDcNbaNtO7aUJQG4aikinttJtoDcNRRFO7aNtAbhqKIp3bRtoDcNRRFORRFBO4biiKciiKA3DcUm2nYoigNw1toinYpNtAbhqKIpzbRtoJsaiiKc20m2oCziKK7iloJse20u2u4pYqBG4420Bacil20EbhvbRtp3bRtqSNw3FEU7toK1JG4Z20m2nttJtoJ3DW2jbTsUbaCdw1to207toC0BuG4rtbflJ9I%2Fepmg0Ny84t2lLMZgD2En9hVwn4cubWXxLO4xjxrU4P%2Bas%2BXUY8b2zkkyUpS6IzJWkirXqXSb&new_photo_caption=+Test+again&new_photo_poster=117
 
-    a_new_photo = Photo.new
-    a_new_photo.image = input_image
-    a_new_photo.caption = input_caption
-    a_new_photo.owner_id = input_user
+  input_image = params.fetch("new_photo")
+  input_caption = params.fetch("new_photo_caption")
+  input_poster = params.fetch("new_photo_poster")
 
-    a_new_photo.save
+  new_image = Photo.new 
+  new_image.image = input_image
+  new_image.caption = input_caption
+  new_image.owner_id = input_poster
 
-  
-    redirect_to("/photos/"+a_new_photo.id.to_s)
+    render(:template=>"photos/create.html.erb")
   end
+
 
   def update
     the_id = params.fetch("modify_id")
