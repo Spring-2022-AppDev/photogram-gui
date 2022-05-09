@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
   def homepage
-    render({:template => "executive/homepage.html.erb"})
+    redirect_to("/users")
   end
 end
