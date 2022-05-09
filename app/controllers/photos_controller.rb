@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
   new_image.owner_id = input_poster
   new_image.save
 
-    render(:template=>"photos/create.html.erb")
+    redirect_to("/photos/" + new_image.id.to_s)
   end
 
 
